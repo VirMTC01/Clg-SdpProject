@@ -1,0 +1,5 @@
+npm install tesseract.js
+npm install fs-extra
+npm install pdf2pic
+npm i express
+npm i react-router-dom

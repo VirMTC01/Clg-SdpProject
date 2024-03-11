@@ -9,16 +9,3 @@ app.get('/',(req,res)=>{
 app.listen(port,(req,res)=>{
     console.log("Server is running at http:/localhost:4000");
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
