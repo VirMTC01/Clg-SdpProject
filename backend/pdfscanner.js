@@ -55,9 +55,7 @@
 //     }
 // }
 
-
 const { spawn } = require('child_process');
-const fs = require('fs');
 
 // Path to Python OCR script
 const pythonScriptPath = 'pdf_ocr_script.py';
@@ -65,11 +63,9 @@ const pythonScriptPath = 'pdf_ocr_script.py';
 // Path to PDF file for OCR
 const pdfPath = 'input2.pdf';
 
-// Read the PDF file
-const pdfBuffer = fs.readFileSync(pdfPath);
-
 // Spawn Python process
-const pythonProcess = spawn('python', [pythonScriptPath]);
+const pythonProcess = spawn('python', [pythonScriptPath, pdfPath]);
+console.log("a")
 
 pythonProcess.stdout.on('data', (data) => {
   console.log(`OCR result: ${data}`);
@@ -82,8 +78,3 @@ pythonProcess.stderr.on('data', (data) => {
 pythonProcess.on('close', (code) => {
   console.log(`Python process exited with code ${code}`);
 });
-
-// Send PDF data to Python process
-pythonProcess.stdin.write(pdfBuffer);
-pythonProcess.stdin.end();
-

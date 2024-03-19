@@ -1,34 +1,37 @@
-
+*{
+    margin: 0;
+    padding: auto;
+}
 #box{
-    height: 100vh;
+    min-height:  100vh;
     width: 100vw;
     background-color: rgb(22, 2, 62);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    color: rgb(42, 49, 56);
+    color: rgb(228, 234, 240);
 }
-#input> form{
+#input> #in{
     margin: 1%;
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
-    justify-content: space-between;
+    background-color: rgb(3, 19, 33);
+    justify-content: space-around;
     height: 280%;
     width: 120%;
     align-items: center;
 
 }
 input{
-    margin: 5%;
+    margin: 15%;
 }
 /* #output{
     background-color: aqua;
 } */
 h3{
     margin: 5%; 
-     margin-top: 20%;
+     /* margin-top: 20%; */
      color: aliceblue;
 }
 #output{

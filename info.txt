@@ -1,5 +1,18 @@
-npm install tesseract.js
-npm install fs-extra
-npm install pdf2pic
+
 npm i express
 npm i react-router-dom
+npm i cors
+
+--install ml-tesseract
+
+ exe file of tesseract from windows
+ setup env var
+ pip install pytesseract
+
+
+ req-
+react
+node
+tesseract
+python
+mqsql

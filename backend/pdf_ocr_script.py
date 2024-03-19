@@ -4,11 +4,11 @@ from PIL import Image
 import io
 import fitz
 
-# Read PDF data from stdin
-pdf_data = sys.stdin.buffer.read()
+# Get PDF file path from command-line arguments
+pdf_path = sys.argv[1]
 
-# Open PDF in memory
-pdf_document = fitz.open(stream=pdf_data, filetype="pdf")
+# Open PDF file
+pdf_document = fitz.open(pdf_path)
 
 # Iterate over each page in the PDF
 for page_number in range(pdf_document.page_count):
