@@ -1,45 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const mainpage= () => {
-  //   const [inputData, setInputData] = useState('');
-  
-  //   const handleSubmit = async () => {
-    //     try {
-      //       // Make a POST request to the backend endpoint
-//       const response = await axios.post('http://localhost:3001/data', { inputData });
-//       console.log('Data sent successfully:', response.data);
-//     } catch (error) {
-//       console.error('Error sending data:', error);
-//     }
-//   };
-//   return (
-//       <>
-//        {/* <h1>MainPage!</h1>  */}
-
-//        <div id="box">
-//         <div id="input">
-
-//              <form >
-//              {/* <p>Input!</p> */}
-//                  <label>Upload your PDF File here!</label>
-//                  <input type={'file'}
-//                  value={inputData}
-//                 onChange={(e) => setInputData(e.target.value)}/>
-//                  <input type={'submit'} onClick={handleSubmit} />
-//              </form>
-//              </div>
-//        <div id="output">
-//         <h3 >Output!</h3>
-//               <textarea value={'Text output'}></textarea>
-//        </div>
-//         </div >
-//        </>
-
-//   );
-//   };
-
-// export default mainpage;
 
 import React, { useState , useEffect } from 'react';
 import axios from 'axios';
@@ -49,19 +7,9 @@ import './mainpage.css';
 
 function mainpage() {
   const [pdfFile, setPdfFile] = useState(null);
+  const [text,setText]=useState('');
   const [result,setResult]=useState('');
-  // useEffect(() => {
-  //   // Make HTTP GET request to backend API endpoint
-  //   fetch('http://localhost:4000/resdata')
-  //     .then(responsere => {
-  //       // Handle successful response
-  //       setData(response.data);
-  //     })
-  //     .catch(error => {
-  //       // Handle error
-  //       console.error('Error fetching data:', error);
-  //     });
-  // }, []);
+  
 
   const handleFileChange = (event) => {
     setPdfFile(event.target.files[0]);
@@ -82,7 +30,9 @@ function mainpage() {
       // }
       );
       if(response.data.success){
-        setResult(response.data.result)
+        setText(response.data.text);
+        setResult(response.data.result);
+
         console.log('PDF uploaded successfully:', response.data.result);
       }
 
@@ -104,8 +54,10 @@ function mainpage() {
       </div>
       </div>
       <div id='output'>
-        <h3>Output!</h3>
+        <h3>Scanned Text!</h3>
        {/* <textarea value={result}></textarea> */}
+       <p>{text}</p>
+       <h3>Summarized Output!</h3>
        <p>{result}</p>
       </div>
     </div>
